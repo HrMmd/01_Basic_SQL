@@ -1,0 +1,87 @@
+/**
+ * Blockwerk — block editor styles (mirrors the front end).
+ * Custom properties (--bw-*) are injected from the Customizer.
+ */
+
+body {
+	background: var(--bw-bg, #fff);
+	color: var(--bw-text, #475569);
+	font-family: var(--bw-font-body, system-ui, sans-serif);
+	font-size: var(--bw-font-size, 16px);
+	line-height: 1.7;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.editor-post-title__input {
+	color: var(--bw-heading, #0f172a);
+	font-family: var(--bw-font-heading, system-ui, sans-serif);
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -.02em;
+}
+h1, .editor-post-title__input { letter-spacing: -.035em; }
+
+a { color: var(--bw-primary, #6366f1); text-underline-offset: .2em; }
+
+.wp-block-button__link {
+	background: var(--bw-primary, #6366f1);
+	border-radius: 999px;
+	font-weight: 600;
+	padding: .8rem 1.5rem;
+}
+
+blockquote, .wp-block-quote {
+	border-left: 4px solid var(--bw-primary, #6366f1);
+	padding-left: 1.5rem;
+	color: var(--bw-heading, #0f172a);
+}
+
+.bw-eyebrow {
+	display: table;
+	margin: 0 auto 1.5rem;
+	padding: .4rem 1rem;
+	font-size: .85rem;
+	font-weight: 600;
+	color: var(--bw-primary, #6366f1);
+	border: 1px solid currentColor;
+	border-radius: 999px;
+}
+
+.bw-hero {
+	padding: 6rem 1.5rem;
+	background:
+		radial-gradient(60% 50% at 20% 10%, rgb(99 102 241 / .2), transparent 70%),
+		radial-gradient(50% 50% at 85% 20%, rgb(236 72 153 / .16), transparent 70%);
+}
+
+.bw-feature-card, .is-style-bw-card {
+	padding: 2rem;
+	border: 1px solid #e2e8f0;
+	border-radius: var(--bw-radius, 16px);
+}
+
+.is-style-bw-glass {
+	padding: 2rem;
+	background: rgb(255 255 255 / .6);
+	backdrop-filter: blur(16px);
+	border-radius: 20px;
+	box-shadow: 0 10px 30px -10px rgb(15 23 42 / .18);
+}
+
+.bw-cta {
+	padding: 4rem 1.5rem;
+	color: #fff;
+	background: linear-gradient(135deg, var(--bw-primary, #6366f1) 0%, #a855f7 55%, #ec4899 100%);
+	border-radius: 24px;
+}
+.bw-cta h2 { color: #fff; }
+.bw-cta .wp-block-button__link { background: #fff; color: #0f172a; }
+
+.is-style-bw-rounded-shadow img { border-radius: 20px; box-shadow: 0 10px 30px -10px rgb(15 23 42 / .18); }
+.is-style-bw-gradient {
+	background: linear-gradient(135deg, var(--bw-primary, #6366f1) 0%, #a855f7 55%, #ec4899 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
