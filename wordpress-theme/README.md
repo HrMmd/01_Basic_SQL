@@ -16,6 +16,21 @@ Typografie. Kein jQuery, keine Abhängigkeiten, GPL-2.0.
 
 Voraussetzungen: WordPress 6.3+, PHP 7.4+. WooCommerce optional.
 
+## Getestet
+
+In echten Installationen mit Browser-Tests (Desktop 1440 px, Handy 360/390 px, hell und dunkel):
+
+- **WordPress 6.9 und 7.1**, **WooCommerce 11.1** (braucht selbst WordPress 7.0+)
+- Blog: Startseite, Archiv, Beitrag, Suche, 404, Kategorie
+- Shop: Produktraster, Produktseite mit Galerie und Bewertungen, AJAX-Warenkorb mit
+  Live-Zähler, Warenkorb, Kasse, **komplette Testbestellung**, Bestellbestätigung, Login
+- Customizer (alle Bereiche, Live-Vorschau) und Block-Editor (Theme-Styles, Patterns, Block-Stile)
+- Kein horizontales Scrollen auf dem Handy, keine PHP- oder JavaScript-Fehler
+
+Die Standard-Stylesheets von WooCommerce werden bewusst nicht geladen – das Theme bringt
+ein vollständiges eigenes Shop-Design mit (`assets/css/woocommerce.css`). Die blockbasierten
+Warenkorb- und Kassenseiten behalten ihr eigenes WooCommerce-Styling.
+
 ## Funktionen
 
 | Bereich | Funktionen |

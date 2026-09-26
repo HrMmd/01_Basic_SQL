@@ -31,6 +31,10 @@ function blockwerk_woocommerce_setup() {
 }
 add_action( 'after_setup_theme', 'blockwerk_woocommerce_setup' );
 
+// The theme ships complete shop styles (assets/css/woocommerce.css); WooCommerce's
+// float-based defaults would fight the grid layout, so they are not loaded.
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
 // Theme provides its own wrappers, sidebar and breadcrumbs.
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );

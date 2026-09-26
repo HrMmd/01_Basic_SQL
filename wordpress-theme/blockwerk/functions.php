@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BLOCKWERK_VERSION', '1.0.0' );
+define( 'BLOCKWERK_VERSION', '1.1.0' );
 define( 'BLOCKWERK_DIR', get_template_directory() );
 define( 'BLOCKWERK_URI', get_template_directory_uri() );
 

@@ -3,9 +3,9 @@ Theme Name: Blockwerk
 Theme URI: https://github.com/hrmmd/01_basic_sql
 Author: HrMmd
 Description: A fast, modern WordPress theme for Gutenberg and WooCommerce. Customizer controls for colors, fonts and layout; three header layouts; sticky glass header; dark mode switch; off-canvas mobile menu; breadcrumbs; reading time and progress bar; share buttons; author box; related posts; block patterns; and a polished WooCommerce shop with live cart count, discount badges and hover images.
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 6.3
-Tested up to: 6.8
+Tested up to: 7.1
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -110,6 +110,8 @@ img { border-radius: inherit; }
 	outline-offset: 3px;
 	border-radius: 6px;
 }
+/* Containers focused by script (notices, skip-link targets) are not controls. */
+[tabindex="-1"]:focus { outline: none; }
 
 hr { border: 0; border-top: 1px solid var(--bw-border); margin: 2.5rem 0; }
 
@@ -309,8 +311,8 @@ input:focus, select:focus, textarea:focus {
 	min-height: var(--bw-header-height);
 }
 
-.site-branding { display: flex; flex-direction: column; justify-content: center; }
-.site-title { margin: 0; font-size: 1.35rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+.site-branding { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.site-title { margin: 0; font-size: 1.35rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; overflow-wrap: anywhere; }
 .site-title a { color: var(--bw-heading); text-decoration: none; }
 .site-description { margin: 0; font-size: .8rem; color: var(--bw-muted); }
 .custom-logo { display: block; max-height: calc(var(--bw-header-height) - 24px); width: auto; }
@@ -368,7 +370,7 @@ input:focus, select:focus, textarea:focus {
 .main-navigation li:focus-within > .sub-menu { opacity: 1; visibility: visible; transform: none; }
 
 .header-layout-inline .main-navigation { margin-left: auto; }
-.header-layout-inline .header-actions { margin-left: 0; }
+@media (min-width: 1000px) { .header-layout-inline .main-navigation + .header-actions { margin-left: 0; } }
 
 .header-layout-centered .header-inner { display: grid; grid-template-columns: 1fr auto 1fr; }
 .header-layout-centered .site-branding { align-items: center; text-align: center; }
@@ -383,11 +385,17 @@ input:focus, select:focus, textarea:focus {
 @media (max-width: 999px) {
 	.site-header .main-navigation, .header-row-bottom, .bw-header-button { display: none; }
 	.bw-menu-toggle { display: inline-grid; }
-	.header-layout-split .header-inner { grid-template-columns: auto 1fr; }
-	.header-layout-split .site-branding { align-items: flex-start; text-align: left; }
+	.header-inner { gap: 1rem; }
+	.header-layout-split .header-inner, .header-layout-centered .header-inner { grid-template-columns: minmax(0, 1fr) auto; }
+	.header-layout-split .site-branding, .header-layout-centered .site-branding { align-items: flex-start; text-align: left; }
 	.header-layout-centered .header-spacer { display: none; }
-	.header-layout-centered .header-inner { grid-template-columns: auto 1fr; }
-	.header-layout-centered .site-branding { align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 600px) {
+	.site-description { display: none; }
+	.site-title { font-size: 1.15rem; }
+	.header-actions { gap: 0; }
+	.header-actions .bw-icon-btn { width: 38px; height: 38px; }
 }
 
 /* Dark mode toggle icon swap */
@@ -596,6 +604,9 @@ input:focus, select:focus, textarea:focus {
 .comment-author .says { display: none; }
 .comment-metadata { font-size: .8rem; margin: .25rem 0 .75rem; }
 .comment-metadata a { color: var(--bw-muted); text-decoration: none; }
+.comment-reply-title { display: block; margin: 0 0 .5rem; font-family: var(--bw-font-heading); font-size: 1.25rem; font-weight: 700; letter-spacing: -.02em; color: var(--bw-heading); }
+.comment-reply-title small { margin-left: .75rem; font-size: .8rem; font-weight: 500; }
+.comment-notes, .logged-in-as { font-size: .9rem; color: var(--bw-muted); }
 .comment-respond { margin-top: 2rem; padding: clamp(1.25rem, 3vw, 2rem); background: var(--bw-surface-2); border-radius: var(--bw-radius); }
 .comment-form label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: .35rem; color: var(--bw-heading); }
 .comment-form-cookies-consent { display: flex; gap: .5rem; align-items: center; }
